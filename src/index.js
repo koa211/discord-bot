@@ -14,6 +14,14 @@ client.on('ready', (c) => {
     console.log(`${c.user.tag} is booted.`);
 });
 
+client.on('interactionCreate', (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === 'hey') {
+    interaction.reply('pluh');
+  }
+});
+
 client.on('messageCreate', (msg) => {
     if (msg.author.bot) {
         return;
